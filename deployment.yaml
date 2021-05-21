@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nodejsexpressapi
+  name: nodejsexpressapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: nodejsexpressapi
+  template:
+    metadata:
+      labels:
+        run: nodejsexpressapi
+    spec:
+      containers:
+      - image: gcr.io/niveusanthos/nodejsexpressapi:latest
+        name: nodejsexpressapi
+        ports:
+        - containerPort: 3000
